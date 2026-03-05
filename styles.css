@@ -294,7 +294,7 @@ body {
   font-size: clamp(42px, 4.85vw, 80px);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  font-weight: 700;
+  font-weight: 800;
   text-wrap: balance;
   text-shadow: 0 8px 20px rgba(30, 58, 138, 0.16);
   transition: transform 0.18s ease;
@@ -302,9 +302,10 @@ body {
 
 .hero__line {
   display: block;
+  font-weight: 800;
 }
 
-.hero__line--accent {
+.hero__headline span:first-child {
   color: var(--navy);
 }
 
