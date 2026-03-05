@@ -8,6 +8,30 @@
       name="description"
       content="가로세로한의원 강남점 유튜브 채널 리빌딩 제안서. 톤 전환, 숏폼 확산, 전환 퍼널 중심의 90일 실행안과 연간 파트너십 견적을 한 페이지로 정리했습니다."
     />
+    <link
+      rel="preload"
+      href="./assets/fonts/WantedSans-Regular.otf"
+      as="font"
+      type="font/otf"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/WantedSans-Medium.otf"
+      as="font"
+      type="font/otf"
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/WantedSans-Bold.otf"
+      as="font"
+      type="font/otf"
+    />
+    <link
+      rel="preload"
+      href="./assets/img/turnkey-rebranding.png"
+      as="image"
+      type="image/png"
+    />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -16,14 +40,26 @@
     </div>
 
     <header class="top-nav" aria-label="섹션 내비게이션">
-      <a class="brand" href="#hero">
-  <img
-    class="brand__logo"
-    src="./assets/img/turnkey-rebranding.png"
-    alt="Turnkey haus by TKDG"
-  />
-</a>
-      <nav class="top-nav__menu">
+      <a class="brand" href="#hero" aria-label="Turnkey haus">
+        <img
+          class="brand__logo"
+          src="./assets/img/turnkey-rebranding.png"
+          alt="Turnkey haus by TKDG"
+        />
+      </a>
+      <button
+        class="top-nav__toggle"
+        id="navToggle"
+        type="button"
+        aria-label="메뉴 열기"
+        aria-controls="topMenu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="top-nav__menu" id="topMenu">
         <a href="#s1">진단</a>
         <a href="#s2">트렌드</a>
         <a href="#s3">정체성</a>
@@ -32,6 +68,7 @@
         <a href="#s6">B/A</a>
         <a href="#s7">90일</a>
         <a href="#s8">KPI</a>
+        <a href="#s8a">Why Us</a>
         <a href="#s-infra">인프라</a>
         <a href="#s9">견적</a>
         <a href="#s10">결론</a>
@@ -77,16 +114,16 @@
               <strong>90일</strong>
             </article>
             <article class="hero-stat">
-              <p>핵심 숏폼 영상 길이</p>
-              <strong>30-60s</strong>
+              <p>매월 업로드 되는 콘텐츠</p>
+              <strong>16편 이상</strong>
             </article>
             <article class="hero-stat">
               <p>파트너십 계약 기간</p>
-              <strong>12 Months</strong>
+              <strong>12개월 이상</strong>
             </article>
             <article class="hero-stat">
               <p>월 청구 금액 (VAT 포함)</p>
-              <strong>5.5M <small>(월 550만원)</small></strong>
+              <strong>440만원</strong>
             </article>
           </aside>
         </div>
@@ -218,6 +255,36 @@
             <h3>남성 틈새 시장 확장</h3>
             <p>남성 뱃살/탈모 라인으로 신규 타깃의 예약 동선을 확보합니다.</p>
           </article>
+        </div>
+
+        <div class="sub-block">
+          <h3>콘텐츠 주제 로드맵 (Deep Consulting)</h3>
+          <div class="mini-grid mini-grid--3">
+            <article>
+              <p>GLP-1 이후 다이어트 전략</p>
+              <span>위고비/마운자로 이후 한방 다이어트의 보완 포인트를 사례 기반으로 설명</span>
+            </article>
+            <article>
+              <p>정체기 돌파 실전 가이드</p>
+              <span>체중 정체 구간에서 생활습관·시술·식단 조합을 어떻게 조정해야 하는지 제시</span>
+            </article>
+            <article>
+              <p>남성 복부/탈모 특화 솔루션</p>
+              <span>남성 타깃에서 반응 높은 고민을 중심으로 상담형 콘텐츠를 운영</span>
+            </article>
+            <article>
+              <p>체질별 맞춤 접근</p>
+              <span>개인 체질/생활패턴을 고려한 맞춤 플랜 설계 과정을 쉽게 전달</span>
+            </article>
+            <article>
+              <p>시술 전후 의사결정 포인트</p>
+              <span>내원 전 가장 많이 묻는 질문을 기준으로 시술 선택 기준을 정리</span>
+            </article>
+            <article>
+              <p>실제 상담 케이스 리뷰</p>
+              <span>가명 기반 사례 설명으로 신뢰를 높이고 예약 전환을 유도</span>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -385,6 +452,28 @@
             <p>유튜브 → 네이버예약/카카오톡 문의 전환율 측정 및 최적화</p>
           </article>
         </div>
+
+        <div class="sub-block">
+          <h3>1개월 온보딩 타임라인: 계약 직후 첫 한 달의 여정</h3>
+          <div class="timeline-onboarding">
+            <article>
+              <p>Week 1 · 채널 진단/세팅</p>
+              <span>타깃 진단, 채널 톤앤매너, 썸네일 가이드, CTA 동선 기준을 확정합니다.</span>
+            </article>
+            <article>
+              <p>Week 2 · 대본 기획/리허설</p>
+              <span>원장 성향 기반 상담형 대본을 설계하고 롱폼/숏폼 파생 구조를 점검합니다.</span>
+            </article>
+            <article>
+              <p>Week 3 · 집중 촬영</p>
+              <span>월 2회 촬영 중 1차 세션을 진행해 롱폼 원본과 숏폼 소스를 함께 확보합니다.</span>
+            </article>
+            <article>
+              <p>Week 4 · 편집/발행/초기 최적화</p>
+              <span>첫 발행 데이터(CTR/완주율/문의)를 확인해 다음 달 포맷을 보정합니다.</span>
+            </article>
+          </div>
+        </div>
       </section>
 
       <!-- SECTION 08: KPI -->
@@ -423,16 +512,71 @@
         </div>
       </section>
 
-      <!-- SECTION 08-5: 특별 지원 인프라 -->
+      <!-- SECTION 09: Why Us -->
+      <section
+        id="s8a"
+        class="section reveal"
+        data-mark="WHY US"
+        data-step="09"
+        data-title="Why Us"
+      >
+        <header class="section-head">
+          <p class="section-head__num">09</p>
+          <h2>Why Us: 왜 턴키하우스와 함께해야 하는가?</h2>
+        </header>
+
+        <div class="checklist">
+          <article class="check">
+            <p class="check__icon" aria-hidden="true">✔</p>
+            <div>
+              <h3>의료 콘텐츠 특화 실행력</h3>
+              <p>병원 채널에서 실제로 반응하는 포맷과 톤을 데이터로 검증하며 운영합니다.</p>
+            </div>
+          </article>
+          <article class="check">
+            <p class="check__icon" aria-hidden="true">✔</p>
+            <div>
+              <h3>담당자 일관성 유지</h3>
+              <p>잦은 담당 교체를 최소화해 채널 톤앤매너와 실행 속도를 안정적으로 유지합니다.</p>
+            </div>
+          </article>
+          <article class="check">
+            <p class="check__icon" aria-hidden="true">✔</p>
+            <div>
+              <h3>실무 네트워크 기반 검증</h3>
+              <p>현직 금융사 직원, 공인중개사 등 자문 네트워크를 통해 콘텐츠 표현의 깊이를 보강합니다.</p>
+            </div>
+          </article>
+          <article class="check">
+            <p class="check__icon" aria-hidden="true">✔</p>
+            <div>
+              <h3>전환 중심 운영 체계</h3>
+              <p>조회수 중심이 아닌 예약 문의·내원 전환 관점에서 KPI를 설계하고 개선합니다.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="sub-block">
+          <h3>전문가 네트워크 협력 기반 콘텐츠 검증 프로세스</h3>
+          <div class="process">
+            <article><p>1차 기획</p><span>실제 상담 질문과 고빈도 고민을 콘텐츠 주제로 구조화</span></article>
+            <article><p>2차 전문가 검토</p><span>표현 리스크와 오해 가능 포인트를 실무 관점에서 점검</span></article>
+            <article><p>3차 표현 교정</p><span>대중이 이해하기 쉬운 언어로 변환하고 메시지 밀도를 조정</span></article>
+            <article><p>4차 최종 확정</p><span>원장 검수 후 발행하고 댓글/문의 대응 가이드를 연동</span></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 10: 특별 지원 인프라 -->
       <section
         id="s-infra"
         class="section reveal"
         data-mark="INFRA"
-        data-step="08-5"
+        data-step="10"
         data-title="인프라"
       >
         <header class="section-head">
-          <p class="section-head__num">08-5</p>
+          <p class="section-head__num">10</p>
           <h2>Only for Partners: 특별 지원 인프라</h2>
         </header>
 
@@ -459,23 +603,170 @@
         </div>
       </section>
 
-      <!-- SECTION 09: 견적 -->
+      <!-- SECTION 11: 견적 -->
       <section
         id="s9"
         class="section section--offer reveal"
         data-mark="OFFER"
-        data-step="09"
+        data-step="11"
         data-title="견적"
       >
         <header class="section-head">
-          <p class="section-head__num">09</p>
+          <p class="section-head__num">11</p>
           <h2>프로젝트 견적 및 계약 조건</h2>
         </header>
 
         <div class="offer-summary">
           <p class="offer-summary__label">월 청구 금액 (VAT 포함)</p>
-          <p class="offer-summary__amount">5,500,000원 / 월</p>
-          <p class="offer-summary__sub">공급가액 5,000,000원 + 부가세 500,000원 · 계약기간 12개월</p>
+          <p class="offer-summary__amount">4,400,000원 / 월</p>
+          <p class="offer-summary__sub">공급가액 4,000,000원 + 부가세 400,000원 · 계약기간 12개월</p>
+        </div>
+
+        <div class="offer-plan">
+          <article class="offer-plan__panel">
+            <p class="offer-plan__eyebrow">Monthly Operating Plan</p>
+            <h3>월간 촬영/업로드 운영 구조</h3>
+
+            <div class="offer-ops">
+              <article class="offer-ops__item">
+                <p class="offer-ops__label">촬영 세션</p>
+                <p class="offer-ops__value">월 2회</p>
+                <span>롱폼 1회 + 숏폼 1회 집중 촬영</span>
+              </article>
+              <article class="offer-ops__item">
+                <p class="offer-ops__label">롱폼 업로드</p>
+                <p class="offer-ops__value">4편</p>
+                <span>회당 8~10분 권장, 10분 이내 설계</span>
+              </article>
+              <article class="offer-ops__item">
+                <p class="offer-ops__label">숏폼 업로드</p>
+                <p class="offer-ops__value">8편</p>
+                <span>독립 숏폼 콘텐츠 월 8편</span>
+              </article>
+              <article class="offer-ops__item">
+                <p class="offer-ops__label">롱폼 재편집 쇼츠</p>
+                <p class="offer-ops__value">8~12편</p>
+                <span>롱폼 1편당 쇼츠 2~3편 이상 파생</span>
+              </article>
+            </div>
+
+            <figure class="offer-flow" aria-label="월간 콘텐츠 운영 흐름">
+              <div class="offer-flow__canvas">
+                <svg
+                  viewBox="0 0 860 280"
+                  role="img"
+                  aria-labelledby="offerFlowTitle offerFlowDesc"
+                  style="font-family: 'Wanted Sans', 'Pretendard', 'Noto Sans KR', sans-serif"
+                >
+                  <title id="offerFlowTitle">월간 콘텐츠 운영 다이어그램</title>
+                  <desc id="offerFlowDesc">
+                    월 2회 촬영에서 롱폼 4편과 숏폼 8편, 롱폼 재편집 쇼츠 8~12편으로 확장해
+                    월 최소 쇼츠 16편과 롱폼 4편을 운영하는 구조입니다.
+                  </desc>
+                  <defs>
+                    <linearGradient id="flowBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#f9fbff" />
+                      <stop offset="100%" stop-color="#eef4ff" />
+                    </linearGradient>
+                    <linearGradient id="flowNode" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffffff" />
+                      <stop offset="100%" stop-color="#f3f7ff" />
+                    </linearGradient>
+                    <linearGradient id="flowStrong" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#2563eb" />
+                      <stop offset="100%" stop-color="#1e40af" />
+                    </linearGradient>
+                    <marker
+                      id="flowArrow"
+                      markerWidth="8"
+                      markerHeight="8"
+                      refX="7"
+                      refY="4"
+                      orient="auto"
+                      markerUnits="strokeWidth"
+                    >
+                      <path d="M0,0 L8,4 L0,8 Z" fill="#6b8fd8" />
+                    </marker>
+                  </defs>
+
+                  <rect x="2" y="30" width="856" height="246" rx="18" fill="url(#flowBg)" stroke="#c9daf8" />
+
+                  <rect x="272" y="8" width="170" height="20" rx="10" fill="#e9f0ff" stroke="#cad9f8" />
+                  <text x="357" y="22" font-size="11" text-anchor="middle" fill="#2b4c8a" font-weight="700">롱폼 권장: 8~10분</text>
+                  <rect x="454" y="8" width="206" height="20" rx="10" fill="#e9f0ff" stroke="#cad9f8" />
+                  <text x="557" y="22" font-size="11" text-anchor="middle" fill="#2b4c8a" font-weight="700">숏폼 권장: 45~90초 (최대 1분30초)</text>
+
+                  <path d="M184 120 L272 74" stroke="#6b8fd8" stroke-width="2.4" fill="none" marker-end="url(#flowArrow)" />
+                  <path d="M184 120 L272 188" stroke="#6b8fd8" stroke-width="2.4" fill="none" marker-end="url(#flowArrow)" />
+                  <path d="M442 74 L510 74" stroke="#6b8fd8" stroke-width="2.4" fill="none" marker-end="url(#flowArrow)" />
+                  <path d="M442 188 L690 164" stroke="#6b8fd8" stroke-width="2.4" fill="none" marker-end="url(#flowArrow)" />
+                  <path d="M680 74 L690 122" stroke="#6b8fd8" stroke-width="2.4" fill="none" marker-end="url(#flowArrow)" />
+
+                  <rect x="24" y="86" width="160" height="68" rx="14" fill="url(#flowNode)" stroke="#c5d6f5" />
+                  <text x="104" y="110" font-size="12" text-anchor="middle" fill="#5b76a9" font-weight="700">촬영 세션</text>
+                  <text x="104" y="136" font-size="30" text-anchor="middle" fill="#1f3f86" font-weight="800">월 2회</text>
+
+                  <rect x="272" y="40" width="170" height="68" rx="14" fill="url(#flowNode)" stroke="#c5d6f5" />
+                  <text x="357" y="64" font-size="12" text-anchor="middle" fill="#5b76a9" font-weight="700">롱폼 업로드</text>
+                  <text x="357" y="90" font-size="32" text-anchor="middle" fill="#1f3f86" font-weight="800">4편</text>
+
+                  <rect x="272" y="154" width="170" height="68" rx="14" fill="url(#flowNode)" stroke="#c5d6f5" />
+                  <text x="357" y="178" font-size="12" text-anchor="middle" fill="#5b76a9" font-weight="700">숏폼 업로드</text>
+                  <text x="357" y="204" font-size="32" text-anchor="middle" fill="#1f3f86" font-weight="800">8편</text>
+
+                  <rect x="510" y="40" width="170" height="68" rx="14" fill="url(#flowNode)" stroke="#c5d6f5" />
+                  <text x="595" y="64" font-size="12" text-anchor="middle" fill="#5b76a9" font-weight="700">재편집 쇼츠</text>
+                  <text x="595" y="90" font-size="30" text-anchor="middle" fill="#1f3f86" font-weight="800">8~12편</text>
+
+                  <rect x="690" y="86" width="146" height="104" rx="16" fill="url(#flowStrong)" />
+                  <text x="763" y="112" font-size="12" text-anchor="middle" fill="#dbe8ff" font-weight="700">월 총 업로드</text>
+                  <text x="763" y="140" font-size="16" text-anchor="middle" fill="#ffffff" font-weight="700">롱폼 4편</text>
+                  <text x="763" y="166" font-size="18" text-anchor="middle" fill="#ffffff" font-weight="800">쇼츠 최소 16편</text>
+                </svg>
+              </div>
+              <figcaption>촬영 2회에서 롱폼/숏폼/재편집을 분기해 월간 업로드 볼륨을 안정적으로 확보하는 운영 구조</figcaption>
+            </figure>
+
+            <p class="offer-plan__total">
+              월 총 업로드 구조:
+              <strong>롱폼 4편 + 쇼츠 최소 16편</strong>
+            </p>
+          </article>
+
+          <article class="offer-plan__panel">
+            <p class="offer-plan__eyebrow">Length & Retention Logic</p>
+            <h3>왜 이 분량/길이가 적정한가</h3>
+
+            <div class="offer-length">
+              <article class="offer-length__item">
+                <div class="offer-length__head">
+                  <p>롱폼 권장 길이</p>
+                  <strong>8~10분 (최대 10분)</strong>
+                </div>
+                <div class="offer-length__bar">
+                  <span class="offer-length__fill offer-length__fill--long"></span>
+                </div>
+                <p class="offer-length__note">
+                  정보형 콘텐츠는 10분을 넘기면 이탈 구간이 빠르게 증가해,
+                  핵심 메시지를 8~10분 내에 압축하는 편이 완주율/신뢰도에 유리합니다.
+                </p>
+              </article>
+
+              <article class="offer-length__item">
+                <div class="offer-length__head">
+                  <p>숏폼 권장 길이</p>
+                  <strong>45~90초 (최대 1분 30초)</strong>
+                </div>
+                <div class="offer-length__bar">
+                  <span class="offer-length__fill offer-length__fill--short"></span>
+                </div>
+                <p class="offer-length__note">
+                  플랫폼 최대 길이는 더 길어졌지만, 실제 체류 데이터 기준으로는
+                  1분 30초 이내가 완주율과 재시청률 확보에 가장 안정적입니다.
+                </p>
+              </article>
+            </div>
+          </article>
         </div>
 
         <div class="table-wrap">
@@ -493,11 +784,11 @@
               </tr>
               <tr>
                 <td>현장 촬영</td>
-                <td>월 1~2회 원내 방문 촬영 및 디렉팅</td>
+                <td>월 2회 촬영 (롱폼 1회 + 숏폼 1회) 및 디렉팅</td>
               </tr>
               <tr>
                 <td>콘텐츠 발행</td>
-                <td>롱폼 + 비포애프터 파생 숏폼 제작/편집</td>
+                <td>롱폼 4편 + 숏폼 8편 + 롱폼 재편집 쇼츠 8~12편 발행</td>
               </tr>
               <tr>
                 <td>채널 디자인</td>
@@ -512,23 +803,23 @@
         </div>
 
         <p class="offer-footnote">
-          외부 광고비(예: 구글/메타) 집행 시 별도 협의. 롱폼/숏폼 편수 비율은 계약 전 최종 확정.
+          외부 광고비(예: 구글/메타) 집행 시 별도 협의. 기본 운영안은 롱폼 4편·쇼츠 최소 16편이며, 월간 이슈에 따라 세부 편수는 협의 조정 가능합니다.
         </p>
         <p class="offer-footnote offer-footnote--team">
           ※ 전담 PD, 촬영/편집, 썸네일 디자인, 채널 운영, 병원 마케팅 담당 등 최소 5인 이상 팀 단위로 운영됩니다.
         </p>
       </section>
 
-      <!-- SECTION 10: 결론 -->
+      <!-- SECTION 12: 결론 -->
       <section
         id="s10"
         class="section section--closing reveal"
         data-mark="CLOSING"
-        data-step="10"
+        data-step="12"
         data-title="결론"
       >
         <header class="section-head section-head--inverse">
-          <p class="section-head__num">10</p>
+          <p class="section-head__num">12</p>
           <h2>결론</h2>
         </header>
 
@@ -544,6 +835,20 @@
         <a class="hero-cta hero-cta--light" href="#hero">Turnkey haus와 실행 시작하기</a>
       </section>
     </main>
+
+    <aside class="quick-consult" aria-label="빠른 상담">
+      <a
+        class="quick-consult__chat"
+        href="https://pf.kakao.com/_dyNPn/chat"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        카카오톡 상담
+      </a>
+      <a class="quick-consult__phone" href="tel:050714633664">
+        전화 상담 0507-1463-3664
+      </a>
+    </aside>
 
     <script src="./script.js"></script>
   </body>

@@ -1,9 +1,11 @@
 document.body.classList.add("has-js");
 
 const progressBar = document.getElementById("progressBar");
-const sections = [...document.querySelectorAll("section[id]")];
+const sections = [...document.querySelectorAll("main section[id]")];
 const navLinks = [...document.querySelectorAll(".top-nav__menu a")];
 const sideNav = document.getElementById("sideNav");
+const navToggle = document.getElementById("navToggle");
+const topMenu = document.getElementById("topMenu");
 const revealBlocks = [...document.querySelectorAll(".reveal")];
 const prefersReduceMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
@@ -24,6 +26,50 @@ if (sideNav) {
     });
     sideNav.appendChild(dot);
     sideDots.push(dot);
+  });
+}
+
+function closeMobileMenu() {
+  if (!topMenu || !navToggle) return;
+  topMenu.classList.remove("is-open");
+  navToggle.classList.remove("is-open");
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.setAttribute("aria-label", "메뉴 열기");
+}
+
+function toggleMobileMenu() {
+  if (!topMenu || !navToggle) return;
+  const next = !topMenu.classList.contains("is-open");
+  topMenu.classList.toggle("is-open", next);
+  navToggle.classList.toggle("is-open", next);
+  navToggle.setAttribute("aria-expanded", next ? "true" : "false");
+  navToggle.setAttribute("aria-label", next ? "메뉴 닫기" : "메뉴 열기");
+}
+
+if (navToggle && topMenu) {
+  navToggle.addEventListener("click", toggleMobileMenu);
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 760) closeMobileMenu();
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (window.innerWidth > 760) return;
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (!topMenu.contains(target) && !navToggle.contains(target)) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMobileMenu();
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 760) closeMobileMenu();
   });
 }
 
@@ -53,7 +99,7 @@ const revealObserver = new IntersectionObserver(
 );
 
 if (revealBlocks.length) {
-    revealBlocks.forEach((item) => revealObserver.observe(item));
+  revealBlocks.forEach((item) => revealObserver.observe(item));
 }
 
 const sectionObserver = new IntersectionObserver(
@@ -67,8 +113,8 @@ const sectionObserver = new IntersectionObserver(
 );
 
 if (sections.length) {
-    sections.forEach((section) => sectionObserver.observe(section));
-    syncActiveState(sections[0].id);
+  sections.forEach((section) => sectionObserver.observe(section));
+  syncActiveState(sections[0].id);
 }
 
 function updateProgress() {
