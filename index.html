@@ -1,121 +1,545 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>가로세로한의원 유튜브 리빌딩 제안서 | 턴키하우스</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가로세로한의원 강남점 유튜브 리빌딩 제안서 | Turnkey haus</title>
+    <meta
+      name="description"
+      content="가로세로한의원 강남점 유튜브 채널 리빌딩 제안서. 톤 전환, 숏폼 확산, 전환 퍼널 중심의 90일 실행안과 연간 파트너십 견적을 한 페이지로 정리했습니다."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true">
+      <span id="progressBar"></span>
+    </div>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v3.2.1/dist/web/static/pretendard.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="styles.css">
+    <header class="top-nav" aria-label="섹션 내비게이션">
+      <a class="brand" href="#hero" aria-label="Turnkey haus">
+        <span style="font-size: 20px; font-weight: 900; color: var(--navy); letter-spacing: -0.5px; text-decoration: none;">Turnkey haus<br><span style="font-size: 11px; color: var(--ink-soft);">by TKDG</span></span>
+      </a>
+      <nav class="top-nav__menu">
+        <a href="#s1">진단</a>
+        <a href="#s2">트렌드</a>
+        <a href="#s3">정체성</a>
+        <a href="#s4">3단계</a>
+        <a href="#s5">카테고리</a>
+        <a href="#s6">B/A</a>
+        <a href="#s7">90일</a>
+        <a href="#s8">KPI</a>
+        <a href="#s-infra">인프라</a>
+        <a href="#s9">견적</a>
+        <a href="#s10">결론</a>
+      </nav>
+    </header>
 
-</head>
-<body>
+    <aside class="side-nav" id="sideNav" aria-label="퀵 내비게이션"></aside>
 
-<div class="side-nav" id="sideNav"></div>
+    <main class="page">
+      <!-- HERO SECTION -->
+      <section
+        id="hero"
+        class="section hero reveal"
+        data-mark="REBUILD"
+        data-step="00"
+        data-title="메인"
+      >
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero__kicker">Brand Strategy Proposal</p>
+            <h1 class="hero__headline">
+              <span class="hero__line hero__line--accent">가로세로한의원 강남점</span>
+              <span class="hero__line">유튜브 채널 리빌딩 제안서</span>
+            </h1>
+            <p class="hero__sub">
+              <span class="hero__sub-line">채널 세팅부터 다시 설계합니다.</span>
+              <span class="hero__sub-line">인위적인 병원 유튜브 포맷을 걷어내고</span>
+              <span class="hero__sub-line">원장 성향 기반 상담형 콘텐츠 + 30–60초 숏폼 확산 구조로 예약 전환을 만듭니다.</span>
+            </p>
+            <a class="hero-cta" href="#s1">실행안 보기</a>
+            
+            <div class="hero-proof">
+              <span class="pill">점심·퇴근 후 내원 동선 반영</span>
+              <span class="pill">강남·교대 접근성 콘텐츠 설계</span>
+              <span class="pill">시술 경쟁력 중심 콘텐츠</span>
+            </div>
+          </div>
 
-<main class="presentation-container" id="presentationContainer">
+          <aside class="hero-stats" aria-label="핵심 수치">
+            <article class="hero-stat">
+              <p>집중 리빌딩 기간</p>
+              <strong>90일</strong>
+            </article>
+            <article class="hero-stat">
+              <p>핵심 숏폼 영상 길이</p>
+              <strong>30-60s</strong>
+            </article>
+            <article class="hero-stat">
+              <p>파트너십 계약 기간</p>
+              <strong>12 Months</strong>
+            </article>
+            <article class="hero-stat">
+              <p>월 청구 금액 (VAT 포함)</p>
+              <strong>5.5M <small>(월 550만원)</small></strong>
+            </article>
+          </aside>
+        </div>
+      </section>
 
-<section class="slide-section" id="slide0" data-title="메인">
+      <!-- SECTION 01: 진단 -->
+      <section
+        id="s1"
+        class="section reveal"
+        data-mark="DIAGNOSE"
+        data-step="01"
+        data-title="진단"
+      >
+        <header class="section-head">
+          <p class="section-head__num">01</p>
+          <h2>현재 채널 상태 진단</h2>
+        </header>
 
-<div class="watermark">REBUILD</div>
+        <p class="note">
+          현재 상태는 “못 만든 영상”의 문제가 아니라
+          <strong>브랜딩 구조와 전환 설계 부재</strong>의 문제입니다.
+        </p>
+        <a
+          class="audit-link"
+          href="https://www.youtube.com/@garosero_gangnam"
+          target="_blank"
+          rel="noopener noreferrer"
+        >AS-IS 채널 실물 보기</a>
 
-<div class="slide-inner reveal" style="align-items:center;text-align:center;">
+        <div class="diagnosis-grid">
+          <ul class="issue-list">
+            <li><strong>콘셉트 혼선:</strong> 채널아트/카피가 의료 전문성보다 예능형 콘셉트에 치우침</li>
+            <li><strong>썸네일 과밀:</strong> 텍스트 레이어가 많아 핵심 메시지 1초 인지가 어려움</li>
+            <li><strong>포맷 단조:</strong> 유사 앵글·유사 화면이 반복되어 체류 유지에 불리</li>
+            <li><strong>후킹 약화:</strong> 질문은 강하지만 답의 구조가 분산되어 완주율 저하</li>
+            <li><strong>전환 추적 부재:</strong> 문의/예약으로 이어지는 CTA 및 추적 설계 미흡</li>
+          </ul>
+        </div>
 
-<div class="logo-area">
-<span style="font-size:24px;font-weight:900;">Turnkey <span style="color:var(--mint-point)">haus</span></span>
-<span class="divider">×</span>
-<span style="font-size:20px;font-weight:900;">TKDG</span>
-</div>
+        <p class="diagnosis-claim">
+          결론: 지금 필요한 건 “더 예쁜 편집”이 아니라 <strong>클릭-체류-전환 전체 구조의 재설계</strong>입니다.
+        </p>
+      </section>
 
-<h1 class="hero-title hero-h1">
-가로세로한의원 강남점<br>
-유튜브 채널 리빌딩 제안
-</h1>
+      <!-- SECTION 02: 트렌드 -->
+      <section
+        id="s2"
+        class="section reveal"
+        data-mark="TREND"
+        data-step="02"
+        data-title="트렌드"
+      >
+        <header class="section-head">
+          <p class="section-head__num">02</p>
+          <h2>2026 의료 유튜브 트렌드: 왜 지금 톤이 안 먹히는가</h2>
+        </header>
 
-<p class="hero-desc">
-채널 세팅부터 다시 설계합니다.<br>
-인위적인 병원 유튜브 포맷을 걷어내고<br>
-<strong>원장 성향 기반 상담형 콘텐츠</strong>와
-<strong>30–60초 숏폼 확산 구조</strong>로
-예약 전환을 만듭니다.
-</p>
+        <p class="note note--top">
+          핵심은 정보량이 아니라 <strong>내적 친밀감</strong>과
+          <strong>시각적 직관성</strong>입니다.
+        </p>
 
-<div class="hero-proof">
-<span class="pill">점심·퇴근 후 내원 동선 반영</span>
-<span class="pill">강남·교대 접근성 콘텐츠 설계</span>
-<span class="pill">시술 경쟁력 중심 콘텐츠</span>
-</div>
+        <div class="table-wrap">
+          <table class="trend-table">
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>기존 (AS-IS)</th>
+                <th>2026 트렌드 (TO-BE)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>화법 / 톤</td>
+                <td>설명형 브리핑</td>
+                <td>원장 성향(말투/호흡/상담 스타일) 기반 자연스러운 상담형 톤</td>
+              </tr>
+              <tr>
+                <td>영상 길이</td>
+                <td>6~10분 롱폼 위주</td>
+                <td>30~60초 숏폼 중심 확산</td>
+              </tr>
+              <tr>
+                <td>후킹 방식</td>
+                <td>자극 카피 텍스트</td>
+                <td>공감 상황 + 자연 후킹</td>
+              </tr>
+              <tr>
+                <td>썸네일 문법</td>
+                <td>전단지형 텍스트 과다</td>
+                <td>얼굴/표정 중심 클린 썸네일</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-</div>
-</section>
+      <!-- SECTION 03: 정체성 -->
+      <section
+        id="s3"
+        class="section reveal"
+        data-mark="POSITION"
+        data-step="03"
+        data-title="정체성"
+      >
+        <header class="section-head">
+          <p class="section-head__num">03</p>
+          <h2>핵심 정체성 재정의</h2>
+        </header>
 
-<section class="slide-section" id="slide1" data-title="채널 진단">
+        <p class="note note--top">
+          모호한 콘셉트를 제거하고 병원의 진짜 무기를 전면화합니다.
+        </p>
 
-<div class="watermark">DIAGNOSE</div>
+        <div class="identity-grid">
+          <article class="identity-card">
+            <h3>체형을 설계하는 한의원</h3>
+            <p>단순 감량이 아닌 체질 개선 중심의 근본 접근을 강조합니다.</p>
+          </article>
+          <article class="identity-card">
+            <h3>GLP-1 시대 균형 의료</h3>
+            <p>위고비/마운자로 이후 한방 다이어트의 보완 포인트를 선명하게 제시합니다.</p>
+          </article>
+          <article class="identity-card">
+            <h3>여성 원장 3인의 전문성</h3>
+            <p>전문성과 공감이 함께 느껴지는 상담소 콘셉트로 친밀감을 만듭니다. (운영 방식에 맞춰 출연 구조 최적화)</p>
+          </article>
+          <article class="identity-card">
+            <h3>남성 틈새 시장 확장</h3>
+            <p>남성 뱃살/탈모 라인으로 신규 타깃의 예약 동선을 확보합니다.</p>
+          </article>
+        </div>
+      </section>
 
-<div class="slide-inner">
+      <!-- SECTION 04: 3단계 -->
+      <section
+        id="s4"
+        class="section reveal"
+        data-mark="3 STEPS"
+        data-step="04"
+        data-title="3단계"
+      >
+        <header class="section-head">
+          <p class="section-head__num">04</p>
+          <h2>리빌딩 전략 3단계</h2>
+        </header>
 
-<h2 class="slide-title reveal">2026 의료 유튜브 트렌드</h2>
+        <p class="note note--top">
+          예쁜 영상이 아니라 <strong>시청자 → 환자 전환 구조</strong>를 만듭니다.
+        </p>
 
-<p class="slide-subtitle reveal delay-100">
-"과거의 정보 전달형 유튜브는 더 이상 환자의 선택을 받지 못합니다."
-</p>
+        <div class="strategy-badges">
+          <p class="strategy-badge">강의형 일방 전달 탈피</p>
+          <p class="strategy-badge">클린 썸네일 규칙 적용</p>
+          <p class="strategy-badge">숏폼 확산 퍼널 구축</p>
+        </div>
 
-<div class="contrast-grid">
+        <div class="step-grid">
+          <article class="step-card">
+            <p class="step-card__num">STEP 01</p>
+            <h3>톤 전환</h3>
+            <p>강의형에서 상담형으로 전환. 라운지/소파 세팅으로 심리적 거리 축소.</p>
+          </article>
+          <article class="step-card">
+            <p class="step-card__num">STEP 02</p>
+            <h3>썸네일 문법 교체</h3>
+            <p>텍스트를 1~2개 키워드로 축소하고 원장 표정을 메인으로 배치해 CTR 강화.</p>
+          </article>
+          <article class="step-card">
+            <p class="step-card__num">STEP 03</p>
+            <h3>숏폼 확산 구조</h3>
+            <p>비포/애프터 시각 변화 중심 숏폼을 대량 발행해 신규 유입 모수 확대.</p>
+          </article>
+        </div>
+      </section>
 
-<div class="contrast-block gray reveal delay-200">
-<h3>현재 채널 상태 (AS‑IS)</h3>
+      <!-- SECTION 05: 카테고리 -->
+      <section
+        id="s5"
+        class="section reveal"
+        data-mark="CATEGORY"
+        data-step="05"
+        data-title="카테고리"
+      >
+        <header class="section-head">
+          <p class="section-head__num">05</p>
+          <h2>콘텐츠 구조 재설계: 3 Category</h2>
+        </header>
 
-<ul class="contrast-list">
-<li>채널 정체성 불명확</li>
-<li>경직된 아나운서형 설명</li>
-<li>숏폼 확산 구조 부재</li>
-</ul>
+        <p class="note note--top">제작 효율과 타깃 선명도를 동시에 높이는 3축 운영안입니다.</p>
 
-</div>
+        <div class="cat-grid">
+          <article class="cat-card cat-card--a">
+            <p class="chip">A. 검색형</p>
+            <h3>정보 제공 및 유입</h3>
+            <p>위고비 부작용, 정체기 등 검색량 높은 키워드를 선점합니다.</p>
+          </article>
+          <article class="cat-card cat-card--b">
+            <p class="chip">B. 전환형</p>
+            <h3>시각적 충격 및 예약 유도</h3>
+            <p>세로코/새살침 전후 비교 숏폼으로 즉시 문의를 유도합니다.</p>
+          </article>
+          <article class="cat-card cat-card--c">
+            <p class="chip">C. 브랜딩형</p>
+            <h3>신뢰 및 내적 친밀감</h3>
+            <p>원장 성향 기반 리뷰/비하인드로 지속 구독 이유를 만듭니다.</p>
+          </article>
+        </div>
+      </section>
 
-<div class="contrast-block mint reveal delay-300">
+      <!-- SECTION 06: B/A (이미지 제거 및 Placeholder 대체) -->
+      <section
+        id="s6"
+        class="section reveal"
+        data-mark="BEFORE/AFTER"
+        data-step="06"
+        data-title="B/A"
+      >
+        <header class="section-head">
+          <p class="section-head__num">06</p>
+          <h2>핵심: Before / After 썸네일 시뮬레이션</h2>
+        </header>
 
-<h3>리빌딩 방향 (TO‑BE)</h3>
+        <p class="note note--top">
+          우리는 같은 인물/같은 주제를 써도, 문법을 바꿔 <strong>CTR과 완주율을 동시에 올리는 방향</strong>으로 설계합니다.
+        </p>
 
-<ul class="contrast-list" style="color:white;">
-<li>원장 성향 기반 상담형 콘텐츠</li>
-<li>숏폼 중심 확산 구조</li>
-<li>클린 썸네일 전략</li>
-</ul>
+        <div class="compare-grid">
+          <article class="compare-card compare-card--before">
+            <p class="chip chip--gray">AS-IS</p>
+            <h3>현재 썸네일</h3>
+            <p>
+              텍스트가 화면을 과도하게 점유하고 콘셉트가 타깃 니즈와 연결되지 않아
+              클릭과 체류가 동시에 약해집니다.
+            </p>
+            <div class="thumb thumb--placeholder">
+              <span>AS-IS: 텍스트 과밀 썸네일</span>
+            </div>
+          </article>
 
-</div>
-</div>
-</div>
-</section>
+          <article class="compare-card compare-card--after">
+            <p class="chip">TO-BE</p>
+            <h3>리빌딩 썸네일</h3>
+            <p>
+              타깃을 찌르는 카피 1줄과 자연스러운 표정/제스처 중심 프레이밍으로
+              클릭률과 공감도를 동시에 확보합니다.
+            </p>
+            <div class="thumb thumb--placeholder thumb--proposed">
+              <span>TO-BE: 얼굴/표정 중심 + 카피 1줄</span>
+            </div>
+          </article>
+        </div>
 
-<section class="slide-section" id="slide6" data-title="견적">
+        <div class="impact-metrics">
+          <article class="impact-card">
+            <p class="impact-card__label">썸네일 CTR</p>
+            <p class="impact-card__value">AS-IS 2~4% → TO-BE 6~8% 목표</p>
+          </article>
+          <article class="impact-card">
+            <p class="impact-card__label">완주율/체류</p>
+            <p class="impact-card__value">도입 7초 후킹 + 상담형 전개로 이탈 구간 단축</p>
+          </article>
+          <article class="impact-card">
+            <p class="impact-card__label">예약 전환 추적</p>
+            <p class="impact-card__value">고정 링크/댓글/설명란 UTM으로 문의 유입 100% 추적</p>
+          </article>
+        </div>
+      </section>
 
-<div class="watermark">OFFER</div>
+      <!-- SECTION 07: 90일 -->
+      <section
+        id="s7"
+        class="section reveal"
+        data-mark="90 DAYS"
+        data-step="07"
+        data-title="90일"
+      >
+        <header class="section-head">
+          <p class="section-head__num">07</p>
+          <h2>3개월 리빌딩 플랜</h2>
+        </header>
 
-<div class="slide-inner">
+        <p class="note note--center">90일 안에 테스트, 증폭, 최적화를 완료합니다.</p>
 
-<h2 class="slide-title reveal">프로젝트 견적 및 계약 조건</h2>
+        <div class="timeline-row">
+          <article class="timeline-item">
+            <h3>1개월 차 · 톤 리셋</h3>
+            <p>새 앵글/세트 기반 롱폼·숏폼 혼합 테스트로 채널 인상 전환</p>
+          </article>
+          <article class="timeline-item">
+            <h3>2개월 차 · 숏폼 집중</h3>
+            <p>반응 높은 포맷을 중심으로 대량 발행하여 도달량 급상승</p>
+          </article>
+          <article class="timeline-item">
+            <h3>3개월 차 · 전환 데이터</h3>
+            <p>유튜브 → 네이버예약/카카오톡 문의 전환율 측정 및 최적화</p>
+          </article>
+        </div>
+      </section>
 
-<div class="total-budget">
+      <!-- SECTION 08: KPI -->
+      <section
+        id="s8"
+        class="section reveal"
+        data-mark="KPI"
+        data-step="08"
+        data-title="KPI"
+      >
+        <header class="section-head">
+          <p class="section-head__num">08</p>
+          <h2>성과 지표 및 확장 로드맵</h2>
+        </header>
 
-<p>공급가액 5,000,000원 / 부가세 500,000원</p>
+        <div class="dual-grid">
+          <article class="list-block">
+            <h3>성과 지표 (KPI)</h3>
+            <ul>
+              <li><strong>조회수:</strong> 숏폼 알고리즘 기반 채널 총 도달량 확대</li>
+              <li><strong>평균 시청시간:</strong> 상담형 톤으로 이탈률 방어</li>
+              <li><strong>숏폼 도달수:</strong> 강남권 20~50 타깃 노출 최적화</li>
+              <li><strong>예약 문의:</strong> 고정 링크 기반 실 예약 유입 추적</li>
+            </ul>
+          </article>
 
-<h3>
-월 청구 금액
-<span style="font-size:56px;">5.5M</span>
-<span style="font-size:18px;">(월 550만원 / VAT 포함)</span>
-</h3>
+          <article class="list-block">
+            <h3>A to B 확장 로드맵</h3>
+            <ul>
+              <li><strong>광고 병행:</strong> 전환형 숏폼에 지역 타깃 광고 집행</li>
+              <li><strong>카테고리 분리:</strong> 미용/다이어트 라인 전략적 분화</li>
+              <li><strong>남성 라인 확장:</strong> 탈모/복부비만 특화 숏폼 강화</li>
+              <li><strong>시스템화:</strong> 반나절 촬영으로 월간 분량 확보 체계 구축</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-</div>
+      <!-- SECTION 08-5: 특별 지원 인프라 -->
+      <section
+        id="s-infra"
+        class="section reveal"
+        data-mark="INFRA"
+        data-step="08-5"
+        data-title="인프라"
+      >
+        <header class="section-head">
+          <p class="section-head__num">08-5</p>
+          <h2>Only for Partners: 특별 지원 인프라</h2>
+        </header>
 
-</div>
-</section>
+        <p class="note note--top">
+          파트너 채널의 초기 완성도를 빠르게 끌어올리기 위한 제작 인프라를 <strong>무상 지원</strong>합니다.
+        </p>
 
-</main>
+        <div class="step-grid">
+          <article class="step-card">
+            <p class="step-card__num">INFRA 01</p>
+            <h3>스튜디오/촬영 공간 지원</h3>
+            <p>강남권에 근접한 공간 혹은 원내 장비/조명 세팅을 지원하여 초기 영상 퀄리티의 일관성을 확보합니다.</p>
+          </article>
+          <article class="step-card">
+            <p class="step-card__num">INFRA 02</p>
+            <h3>하이엔드 프로필 촬영 지원</h3>
+            <p>유튜브 채널의 첫인상과 썸네일 클릭률(CTR) 기여도를 즉각적으로 높이는 고품질 프로필 이미지를 지원합니다.</p>
+          </article>
+          <article class="step-card">
+            <p class="step-card__num">INFRA 03</p>
+            <h3>병원 전문 마케터 협업 체계</h3>
+            <p>영상 시청이 단발성에 그치지 않도록, 실제 내원을 유도하는 전환 동선 설계와 최적화된 예약 링크 환경을 세팅합니다.</p>
+          </article>
+        </div>
+      </section>
 
-<script src="script.js"></script>
+      <!-- SECTION 09: 견적 -->
+      <section
+        id="s9"
+        class="section section--offer reveal"
+        data-mark="OFFER"
+        data-step="09"
+        data-title="견적"
+      >
+        <header class="section-head">
+          <p class="section-head__num">09</p>
+          <h2>프로젝트 견적 및 계약 조건</h2>
+        </header>
 
-</body>
+        <div class="offer-summary">
+          <p class="offer-summary__label">월 청구 금액 (VAT 포함)</p>
+          <p class="offer-summary__amount">5,500,000원 / 월</p>
+          <p class="offer-summary__sub">공급가액 5,000,000원 + 부가세 500,000원 · 계약기간 12개월</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="offer-table">
+            <thead>
+              <tr>
+                <th>항목</th>
+                <th>월간 제공 내역</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>기획/디렉팅</td>
+                <td>전담 PD 배정, 타깃 맞춤 콘텐츠 기획안 설계</td>
+              </tr>
+              <tr>
+                <td>현장 촬영</td>
+                <td>월 1~2회 원내 방문 촬영 및 디렉팅</td>
+              </tr>
+              <tr>
+                <td>콘텐츠 발행</td>
+                <td>롱폼 + 비포애프터 파생 숏폼 제작/편집</td>
+              </tr>
+              <tr>
+                <td>채널 디자인</td>
+                <td>CTR 최적화 썸네일 및 채널 아트워크 개선</td>
+              </tr>
+              <tr>
+                <td>퍼널 관리</td>
+                <td>예약 링크 고정, 유튜브 SEO 세팅, 전환 동선 관리</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="offer-footnote">
+          외부 광고비(예: 구글/메타) 집행 시 별도 협의. 롱폼/숏폼 편수 비율은 계약 전 최종 확정.
+        </p>
+        <p class="offer-footnote offer-footnote--team">
+          ※ 전담 PD, 촬영/편집, 썸네일 디자인, 채널 운영, 병원 마케팅 담당 등 최소 5인 이상 팀 단위로 운영됩니다.
+        </p>
+      </section>
+
+      <!-- SECTION 10: 결론 -->
+      <section
+        id="s10"
+        class="section section--closing reveal"
+        data-mark="CLOSING"
+        data-step="10"
+        data-title="결론"
+      >
+        <header class="section-head section-head--inverse">
+          <p class="section-head__num">10</p>
+          <h2>결론</h2>
+        </header>
+
+        <p class="closing-copy">
+          가로세로한의원 강남점 유튜브는 단순 리뉴얼이 아니라
+          <strong>구조적 리빌딩</strong>이 필요한 단계입니다.
+        </p>
+        <p class="closing-copy">
+          불필요한 연출 비용을 줄이고 원장님의 톤과 환자가 반응하는 숏폼 기획에 집중해,
+          3개월 안에 실질적인 내원 데이터를 확보하는 체계로 전환하겠습니다.
+        </p>
+
+        <a class="hero-cta hero-cta--light" href="#hero">Turnkey haus와 실행 시작하기</a>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
 </html>
