@@ -431,7 +431,9 @@ img {
   line-height: 1.1;
   letter-spacing: -0.03em;
   font-weight: 800;
-  text-wrap: balance;
+  word-break: keep-all;
+  line-break: strict;
+  text-wrap: pretty;
   text-shadow: 0 8px 20px rgba(15, 77, 66, 0.16);
   transition: transform 0.18s ease;
 }
@@ -441,9 +443,9 @@ img {
   font-weight: 800;
 }
 
-.hero__headline span:first-child {
+.hero__line--accent {
   color: var(--navy);
-  font-size: 0.9em; /* 첫 줄만 살짝 축소 */
+  font-size: 0.9em;
 }
 
 .hero__sub {
@@ -1588,6 +1590,27 @@ tbody tr:last-child td {
   padding-bottom: 44px;
 }
 
+.section--closing .section-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-left: 74px;
+  padding-right: 74px;
+}
+
+.section--closing .section-head .section-head__num {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.section--closing .section-head h2 {
+  margin: 0 auto;
+  text-align: center;
+}
+
 .closing-copy {
   max-width: 56ch;
   margin: 0 auto 12px;
@@ -1904,7 +1927,10 @@ tbody tr:last-child td {
   }
 
   .hero__headline {
-    font-size: clamp(34px, 11vw, 58px);
+    max-width: 100%;
+    font-size: clamp(33px, 10.2vw, 50px);
+    line-height: 1.12;
+    text-wrap: normal;
   }
 
   .hero__sub {
@@ -1916,6 +1942,11 @@ tbody tr:last-child td {
     padding: 6px 10px;
   }
 
+  .section--closing .section-head {
+    padding-left: 62px;
+    padding-right: 62px;
+  }
+
   .section-head {
     grid-template-columns: 1fr;
     align-items: start;
@@ -1924,10 +1955,16 @@ tbody tr:last-child td {
 
   h2 {
     font-size: clamp(24px, 7vw, 32px);
+    word-break: keep-all;
+    line-break: loose;
+    text-wrap: pretty;
   }
 
   h3 {
     font-size: clamp(18px, 5.2vw, 22px);
+    word-break: keep-all;
+    line-break: loose;
+    text-wrap: pretty;
   }
 
   th,

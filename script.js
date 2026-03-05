@@ -3,7 +3,8 @@ document.body.classList.add("has-js");
 const progressBar = document.getElementById("progressBar");
 const sections = [...document.querySelectorAll("main section[id]")];
 const navLinks = [...document.querySelectorAll(".top-nav__menu a")];
-const sideNav = document.getElementById("sideNav");
+const sideContainer =
+  document.getElementById("sideNav") || document.getElementById("sideRail");
 const navToggle = document.getElementById("navToggle");
 const topMenu = document.getElementById("topMenu");
 const revealBlocks = [...document.querySelectorAll(".reveal")];
@@ -14,17 +15,34 @@ const prefersReduceMotion = window.matchMedia(
 const navMap = new Map(navLinks.map((link) => [link.hash.replace("#", ""), link]));
 const sideDots = [];
 
-if (sideNav) {
+function getSectionLabel(section) {
+  return (
+    section.dataset.nav ||
+    section.dataset.title ||
+    section.dataset.mark ||
+    section.id
+  );
+}
+
+if (sideContainer) {
+  const dotClass = sideContainer.classList.contains("side-rail")
+    ? "side-rail__dot"
+    : "side-nav__dot";
+
   sections.forEach((section) => {
     const dot = document.createElement("button");
+    const label = getSectionLabel(section);
     dot.type = "button";
-    dot.className = "side-nav__dot";
-    dot.dataset.title = section.dataset.title || section.id;
-    dot.setAttribute("aria-label", section.dataset.title || section.id);
+    dot.className = dotClass;
+    dot.dataset.label = label;
+    dot.setAttribute("aria-label", `${label} 섹션 이동`);
     dot.addEventListener("click", () => {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      section.scrollIntoView({
+        behavior: prefersReduceMotion ? "auto" : "smooth",
+        block: "start",
+      });
     });
-    sideNav.appendChild(dot);
+    sideContainer.appendChild(dot);
     sideDots.push(dot);
   });
 }
@@ -78,41 +96,40 @@ function syncActiveState(sectionId) {
   const activeNav = navMap.get(sectionId);
   if (activeNav) activeNav.classList.add("is-active");
 
-  if (sideDots.length) {
-    sideDots.forEach((dot) => dot.classList.remove("is-active"));
-    const idx = sections.findIndex((section) => section.id === sectionId);
-    if (idx >= 0 && sideDots[idx]) {
-      sideDots[idx].classList.add("is-active");
-    }
+  if (!sideDots.length) return;
+  sideDots.forEach((dot) => dot.classList.remove("is-active"));
+  const idx = sections.findIndex((section) => section.id === sectionId);
+  if (idx >= 0 && sideDots[idx]) {
+    sideDots[idx].classList.add("is-active");
   }
 }
 
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
-    }
-  },
-  { threshold: 0.16 }
-);
-
 if (revealBlocks.length) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      }
+    },
+    { threshold: 0.16 }
+  );
+
   revealBlocks.forEach((item) => revealObserver.observe(item));
 }
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      syncActiveState(entry.target.id);
-    });
-  },
-  { threshold: 0.35, rootMargin: "-15% 0px -45% 0px" }
-);
-
 if (sections.length) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        syncActiveState(entry.target.id);
+      });
+    },
+    { threshold: 0.35, rootMargin: "-15% 0px -45% 0px" }
+  );
+
   sections.forEach((section) => sectionObserver.observe(section));
   syncActiveState(sections[0].id);
 }
@@ -138,7 +155,6 @@ if (!prefersReduceMotion) {
       const rect = hero.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
       const y = (event.clientY - rect.top) / rect.height - 0.5;
-
       headline.style.transform = `translateY(${y * -8}px) rotateX(${y * 3}deg) rotateY(${x * -5}deg)`;
     });
 
