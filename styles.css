@@ -307,6 +307,7 @@ body {
 
 .hero__headline span:first-child {
   color: var(--navy);
+  font-size: 0.9em; /* 첫 줄만 살짝 축소 */
 }
 
 .hero__sub {
