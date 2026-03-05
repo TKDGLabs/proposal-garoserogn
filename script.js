@@ -19,7 +19,17 @@ const sideDots = [];
 
 function seedMotionItems(container, selector, startDelay = 0, step = 70, max = 10) {
   if (!container) return;
-  const nodes = [...container.querySelectorAll(selector)];
+  let nodes = [];
+  try {
+    nodes = [...container.querySelectorAll(selector)];
+  } catch (_error) {
+    const direct = selector.replace(/^:scope\s*>\s*/, "").trim();
+    nodes = [...container.children].filter((child) => {
+      if (!(child instanceof Element)) return false;
+      if (!direct || direct === "*") return true;
+      return child.matches(direct);
+    });
+  }
   nodes.slice(0, max).forEach((node, idx) => {
     if (!(node instanceof HTMLElement)) return;
     if (node.dataset.motionSeeded === "true") return;

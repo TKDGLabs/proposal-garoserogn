@@ -376,16 +376,8 @@ img {
 }
 
 .section::before {
-  content: attr(data-step);
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  font-size: 12px;
-  line-height: 1.2;
-  letter-spacing: 0.08em;
-  color: #7b9b94;
-  font-weight: 700;
-  z-index: 0;
+  content: none !important;
+  display: none !important;
 }
 
 .hero {

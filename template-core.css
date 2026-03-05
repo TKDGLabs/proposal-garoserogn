@@ -196,7 +196,8 @@ body {
 }
 
 .section::before {
-  content: none;
+  content: none !important;
+  display: none !important;
 }
 
 .section-head {
@@ -889,5 +890,311 @@ body {
   .has-js .quick-consult {
     opacity: 1;
     transform: none;
+  }
+}
+
+@page {
+  size: A4 landscape;
+  margin: 7mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 297mm;
+    min-height: 210mm;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  body {
+    margin: 0 !important;
+    background: #fff !important;
+    color: #041411 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .top-nav,
+  .scroll-progress,
+  .side-nav,
+  .side-rail,
+  .quick-consult {
+    display: none !important;
+  }
+
+  .page {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .section {
+    break-before: page;
+    page-break-before: always;
+    break-after: auto;
+    page-break-after: auto;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+    min-height: auto !important;
+    margin: 0 !important;
+    padding: 5.4mm 6.2mm !important;
+    border-radius: 0 !important;
+    border: 1px solid #d9e9e5 !important;
+    background: #fff !important;
+    overflow: visible !important;
+  }
+
+  .section:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .section::before,
+  .section::after,
+  .hero::before {
+    content: none !important;
+  }
+
+  .section > *,
+  .section article,
+  .section ul,
+  .section ol,
+  .section li,
+  .section table,
+  .section tr,
+  .section td,
+  .section th {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .section-head {
+    gap: 8px !important;
+    margin-bottom: 3.2mm !important;
+    padding-bottom: 2.6mm !important;
+  }
+
+  .section-head::after {
+    width: 36mm !important;
+    height: 1.2px !important;
+  }
+
+  .section-head__num {
+    min-width: 34px !important;
+    padding: 3px 8px !important;
+    font-size: 10px !important;
+  }
+
+  h1 {
+    font-size: 23px !important;
+    line-height: 1.12 !important;
+  }
+
+  h2 {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+  }
+
+  h3 {
+    font-size: 11.5px !important;
+    line-height: 1.24 !important;
+  }
+
+  p,
+  li {
+    font-size: 9.2px !important;
+    line-height: 1.3 !important;
+  }
+
+  p {
+    margin: 0.55mm 0 !important;
+  }
+
+  ul,
+  ol {
+    margin: 0.8mm 0 1mm 2.8mm !important;
+  }
+
+  .hero {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-width: 1px !important;
+  }
+
+  .hero-grid {
+    min-height: auto !important;
+    grid-template-columns: 1.08fr 0.92fr !important;
+    gap: 4.8mm !important;
+  }
+
+  .hero-copy {
+    gap: 6px !important;
+  }
+
+  .hero__kicker {
+    font-size: 12px !important;
+  }
+
+  .hero__headline {
+    font-size: 33px !important;
+    max-width: 12.2ch !important;
+  }
+
+  .hero__sub {
+    font-size: 9.6px !important;
+    line-height: 1.35 !important;
+  }
+
+  .hero__sub br {
+    display: none !important;
+  }
+
+  .hero-cta {
+    display: none !important;
+  }
+
+  .hero-proof {
+    display: none !important;
+  }
+
+  .pill {
+    min-height: 20px !important;
+    padding: 3px 8px !important;
+    font-size: 9px !important;
+  }
+
+  .hero-stats {
+    border-radius: 10px !important;
+  }
+
+  .hero-stat {
+    padding: 5px 9px !important;
+    gap: 8px !important;
+  }
+
+  .hero-stat p {
+    font-size: 9.6px !important;
+    line-height: 1.35 !important;
+  }
+
+  .hero-stat strong {
+    font-size: 23px !important;
+    line-height: 0.95 !important;
+  }
+
+  .table-wrap {
+    overflow: visible !important;
+  }
+
+  table,
+  .offer-table,
+  .trend-table {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    padding: 2.5px 3.6px !important;
+    font-size: 8.7px !important;
+    line-height: 1.3 !important;
+  }
+
+  .ab,
+  .tracks,
+  .timeline-row,
+  .kpi-row,
+  .mini-grid--2,
+  .dual-grid,
+  .process,
+  .offer-plan {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.1mm !important;
+  }
+
+  .identity-grid,
+  .step-grid,
+  .cat-grid,
+  .compare-grid,
+  .impact-metrics,
+  .mini-grid--3,
+  .offer-ops,
+  .offer-length,
+  .funnel-stages,
+  .timeline,
+  .timeline-onboarding {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.9mm !important;
+  }
+
+  .offer-length__points li {
+    grid-template-columns: auto 1fr !important;
+    gap: 4px !important;
+  }
+
+  .offer-mix {
+    margin-top: 1.8mm !important;
+    padding: 2.8mm !important;
+  }
+
+  .offer-mix__list {
+    gap: 4px !important;
+  }
+
+  .offer-mix__total,
+  .offer-footnote {
+    font-size: 9.1px !important;
+    line-height: 1.34 !important;
+  }
+
+  .offer-flow,
+  .funnel,
+  .pipeline,
+  .branch {
+    display: none !important;
+  }
+
+  .section--offer .table-wrap {
+    display: none !important;
+  }
+
+  .section--offer .offer-footnote {
+    margin-top: 3mm !important;
+  }
+
+  .section--offer .offer-footnote::before {
+    content: "※ 상세 항목표는 디지털 제안서 원본 기준으로 확인 가능합니다.";
+    display: block;
+    margin-bottom: 1.2mm;
+    font-size: 8.8px;
+    color: #476760;
+  }
+
+  .faq-grid article,
+  .timeline-step,
+  .timeline-item,
+  .track-card,
+  .ab-card,
+  .offer-ops__item,
+  .offer-length__item {
+    min-height: auto !important;
+    padding: 2.5mm !important;
+  }
+
+  .has-js .reveal,
+  .has-js .reveal .motion-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section a[href]:after {
+    content: none !important;
   }
 }
