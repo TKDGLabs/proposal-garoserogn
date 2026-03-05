@@ -9,10 +9,18 @@ const navToggle = document.getElementById("navToggle");
 const topMenu = document.getElementById("topMenu");
 const revealBlocks = [...document.querySelectorAll(".reveal")];
 const countTargets = [...document.querySelectorAll("[data-count-to]")];
-const prefersReduceMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
-).matches;
-const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const supportsMatchMedia = typeof window.matchMedia === "function";
+const forceMotion =
+  typeof URLSearchParams !== "undefined" &&
+  new URLSearchParams(window.location.search).get("motion") === "on";
+const prefersReduceMotion =
+  !forceMotion &&
+  supportsMatchMedia &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const canHover =
+  supportsMatchMedia &&
+  window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const hasIntersectionObserver = "IntersectionObserver" in window;
 
 const navMap = new Map(navLinks.map((link) => [link.hash.replace("#", ""), link]));
 const sideDots = [];
@@ -49,6 +57,13 @@ function seedMotionByContainer(
   document.querySelectorAll(containerSelector).forEach((container) => {
     seedMotionItems(container, itemSelector, startDelay, step, max);
   });
+}
+
+function getDataWithFallback(dataset, key, fallbackValue) {
+  const raw = dataset[key];
+  return raw === undefined || raw === null || raw === ""
+    ? fallbackValue
+    : raw;
 }
 
 function getSectionLabel(section) {
@@ -160,33 +175,59 @@ function syncActiveState(sectionId) {
 }
 
 if (revealBlocks.length) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
+  if (hasIntersectionObserver) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          }
         }
-      }
-    },
-    { threshold: 0.16 }
-  );
+      },
+      { threshold: 0.16 }
+    );
 
-  revealBlocks.forEach((item) => revealObserver.observe(item));
+    revealBlocks.forEach((item) => revealObserver.observe(item));
+  } else {
+    revealBlocks.forEach((item) => item.classList.add("is-visible"));
+  }
 }
 
 if (sections.length) {
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        syncActiveState(entry.target.id);
-      });
-    },
-    { threshold: 0.35, rootMargin: "-15% 0px -45% 0px" }
-  );
+  if (hasIntersectionObserver) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          syncActiveState(entry.target.id);
+        });
+      },
+      { threshold: 0.35, rootMargin: "-15% 0px -45% 0px" }
+    );
 
-  sections.forEach((section) => sectionObserver.observe(section));
-  syncActiveState(sections[0].id);
+    sections.forEach((section) => sectionObserver.observe(section));
+    syncActiveState(sections[0].id);
+  } else {
+    const fallbackSyncActive = () => {
+      let activeId = sections[0].id;
+      let bestDistance = Number.POSITIVE_INFINITY;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - window.innerHeight * 0.25);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          activeId = section.id;
+        }
+      });
+
+      syncActiveState(activeId);
+    };
+
+    document.addEventListener("scroll", fallbackSyncActive, { passive: true });
+    window.addEventListener("resize", fallbackSyncActive);
+    fallbackSyncActive();
+  }
 }
 
 function updateProgress() {
@@ -212,10 +253,14 @@ function formatCountValue(value, decimals = 0) {
 function renderCount(target, value) {
   const to = Number(target.dataset.countTo);
   const decimals = Number(
-    target.dataset.countDecimals ?? (Number.isInteger(to) ? 0 : 1)
+    getDataWithFallback(
+      target.dataset,
+      "countDecimals",
+      Number.isInteger(to) ? 0 : 1
+    )
   );
-  const prefix = target.dataset.countPrefix ?? "";
-  const suffix = target.dataset.countSuffix ?? "";
+  const prefix = String(getDataWithFallback(target.dataset, "countPrefix", ""));
+  const suffix = String(getDataWithFallback(target.dataset, "countSuffix", ""));
   const rounded =
     decimals > 0 ? Number(value.toFixed(decimals)) : Math.round(value);
   target.textContent = `${prefix}${formatCountValue(rounded, decimals)}${suffix}`;
@@ -228,8 +273,11 @@ function animateCount(target) {
   const to = Number(target.dataset.countTo);
   if (!Number.isFinite(to)) return;
 
-  const from = Number(target.dataset.countFrom ?? 0);
-  const duration = Math.max(300, Number(target.dataset.countDuration ?? 900));
+  const from = Number(getDataWithFallback(target.dataset, "countFrom", 0));
+  const duration = Math.max(
+    300,
+    Number(getDataWithFallback(target.dataset, "countDuration", 900))
+  );
 
   if (prefersReduceMotion) {
     renderCount(target, to);
@@ -262,18 +310,22 @@ if (countTargets.length) {
   if (prefersReduceMotion) {
     countTargets.forEach((target) => animateCount(target));
   } else {
-    const countObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          animateCount(entry.target);
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.45, rootMargin: "0px 0px -10% 0px" }
-    );
+    if (hasIntersectionObserver) {
+      const countObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.45, rootMargin: "0px 0px -10% 0px" }
+      );
 
-    countTargets.forEach((target) => countObserver.observe(target));
+      countTargets.forEach((target) => countObserver.observe(target));
+    } else {
+      countTargets.forEach((target) => animateCount(target));
+    }
   }
 }
 
