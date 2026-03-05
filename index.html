@@ -114,19 +114,19 @@
           <aside class="hero-stats" aria-label="핵심 수치">
             <article class="hero-stat">
               <p>집중 리빌딩 기간</p>
-              <strong>90일</strong>
+              <strong data-count-to="90" data-count-suffix="일">90일</strong>
             </article>
             <article class="hero-stat">
               <p>매월 업로드 되는 콘텐츠</p>
-              <strong>16편 이상</strong>
+              <strong data-count-to="16" data-count-suffix="편 이상">16편 이상</strong>
             </article>
             <article class="hero-stat">
               <p>파트너십 계약 기간</p>
-              <strong>12개월 이상</strong>
+              <strong data-count-to="12" data-count-suffix="개월 이상">12개월 이상</strong>
             </article>
             <article class="hero-stat">
               <p>월 청구 금액 (VAT 포함)</p>
-              <strong>440만원</strong>
+              <strong data-count-to="440" data-count-suffix="만원" data-count-duration="1100">440만원</strong>
             </article>
           </aside>
         </div>
@@ -621,7 +621,12 @@
 
         <div class="offer-summary">
           <p class="offer-summary__label">월 청구 금액 (VAT 포함)</p>
-          <p class="offer-summary__amount">4,400,000원 / 월</p>
+          <p
+            class="offer-summary__amount"
+            data-count-to="4400000"
+            data-count-suffix="원 / 월"
+            data-count-duration="1200"
+          >4,400,000원 / 월</p>
           <p class="offer-summary__sub">공급가액 4,000,000원 + 부가세 400,000원 · 계약기간 12개월</p>
         </div>
 
@@ -654,14 +659,14 @@
             </div>
 
             <div class="offer-mix" aria-label="월간 산출 구성">
-              <p class="offer-mix__title">월간 산출 구성</p>
+              <p class="offer-mix__title">운영 구조 요약</p>
               <ul class="offer-mix__list">
-                <li><span>롱폼</span><strong>4편</strong></li>
-                <li><span>숏폼 (독립)</span><strong>8편</strong></li>
-                <li><span>숏폼 (재편집)</span><strong>8~12편</strong></li>
-                <li><span>숏폼 합계</span><strong>최소 16편</strong></li>
+                <li><span>롱폼:숏폼 비율</span><strong>1:4</strong></li>
+                <li><span>촬영 1회당 산출량</span><strong>10편+</strong></li>
+                <li><span>숏폼 중 재편집 비중</span><strong>50%+</strong></li>
+                <li><span>운영 우선 KPI</span><strong>완주율/상담유입</strong></li>
               </ul>
-              <p class="offer-mix__total">월 총 콘텐츠 최소 20편 (롱폼 4 + 숏폼 최소 16)</p>
+              <p class="offer-mix__total">운영 포인트: 월 최소 20편(롱폼 4 + 숏폼 최소 16)을 안정적으로 확보하는 구조</p>
             </div>
           </article>
 
@@ -808,7 +813,12 @@
           “어떤 환자를 우선 상담할까”를 논의하게 됩니다.
         </p>
 
-        <a class="hero-cta" href="#hero">상담 실행 결정하기</a>
+        <a
+          class="hero-cta"
+          href="https://www.turnkey.haus"
+          target="_blank"
+          rel="noopener noreferrer"
+        >상담 실행 결정하기</a>
       </section>
     </main>
 

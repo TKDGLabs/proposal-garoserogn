@@ -8,12 +8,38 @@ const sideContainer =
 const navToggle = document.getElementById("navToggle");
 const topMenu = document.getElementById("topMenu");
 const revealBlocks = [...document.querySelectorAll(".reveal")];
+const countTargets = [...document.querySelectorAll("[data-count-to]")];
 const prefersReduceMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
+const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
 const navMap = new Map(navLinks.map((link) => [link.hash.replace("#", ""), link]));
 const sideDots = [];
+
+function seedMotionItems(container, selector, startDelay = 0, step = 70, max = 10) {
+  if (!container) return;
+  const nodes = [...container.querySelectorAll(selector)];
+  nodes.slice(0, max).forEach((node, idx) => {
+    if (!(node instanceof HTMLElement)) return;
+    if (node.dataset.motionSeeded === "true") return;
+    node.dataset.motionSeeded = "true";
+    node.classList.add("motion-item");
+    node.style.setProperty("--motion-delay", `${startDelay + idx * step}ms`);
+  });
+}
+
+function seedMotionByContainer(
+  containerSelector,
+  itemSelector = ":scope > *",
+  startDelay = 90,
+  step = 70,
+  max = 10
+) {
+  document.querySelectorAll(containerSelector).forEach((container) => {
+    seedMotionItems(container, itemSelector, startDelay, step, max);
+  });
+}
 
 function getSectionLabel(section) {
   return (
@@ -45,6 +71,25 @@ if (sideContainer) {
     sideContainer.appendChild(dot);
     sideDots.push(dot);
   });
+}
+
+if (sections.length) {
+  sections.forEach((section) => {
+    seedMotionItems(section, ":scope > *", 30, 90, 8);
+  });
+
+  seedMotionByContainer(".hero-copy", ":scope > *", 80, 72, 8);
+  seedMotionByContainer(".hero-proof", ":scope > *", 150, 56, 8);
+  seedMotionByContainer(".hero-stats", ":scope > .hero-stat", 185, 72, 8);
+
+  seedMotionByContainer(
+    ".ab-grid, .track-grid, .identity-grid, .step-grid, .cat-grid, .compare-grid, .impact-grid, .timeline, .timeline-row, .mini-grid, .offer-ops, .offer-length, .kpi-row",
+    ":scope > *",
+    90,
+    66,
+    12
+  );
+  seedMotionByContainer(".offer-mix__list", ":scope > li", 120, 54, 8);
 }
 
 function closeMobileMenu() {
@@ -146,7 +191,83 @@ document.addEventListener("scroll", updateProgress, { passive: true });
 window.addEventListener("resize", updateProgress);
 updateProgress();
 
-if (!prefersReduceMotion) {
+function formatCountValue(value, decimals = 0) {
+  return new Intl.NumberFormat("ko-KR", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+    useGrouping: true,
+  }).format(value);
+}
+
+function renderCount(target, value) {
+  const to = Number(target.dataset.countTo);
+  const decimals = Number(
+    target.dataset.countDecimals ?? (Number.isInteger(to) ? 0 : 1)
+  );
+  const prefix = target.dataset.countPrefix ?? "";
+  const suffix = target.dataset.countSuffix ?? "";
+  const rounded =
+    decimals > 0 ? Number(value.toFixed(decimals)) : Math.round(value);
+  target.textContent = `${prefix}${formatCountValue(rounded, decimals)}${suffix}`;
+}
+
+function animateCount(target) {
+  if (target.dataset.countStarted === "true") return;
+  target.dataset.countStarted = "true";
+
+  const to = Number(target.dataset.countTo);
+  if (!Number.isFinite(to)) return;
+
+  const from = Number(target.dataset.countFrom ?? 0);
+  const duration = Math.max(300, Number(target.dataset.countDuration ?? 900));
+
+  if (prefersReduceMotion) {
+    renderCount(target, to);
+    target.classList.add("is-counted");
+    return;
+  }
+
+  const startTime = performance.now();
+  const distance = to - from;
+  const easeOutCubic = (t) => 1 - (1 - t) ** 3;
+
+  const tick = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(1, elapsed / duration);
+    const eased = easeOutCubic(progress);
+    renderCount(target, from + distance * eased);
+
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else {
+      renderCount(target, to);
+      target.classList.add("is-counted");
+    }
+  };
+
+  requestAnimationFrame(tick);
+}
+
+if (countTargets.length) {
+  if (prefersReduceMotion) {
+    countTargets.forEach((target) => animateCount(target));
+  } else {
+    const countObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.45, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    countTargets.forEach((target) => countObserver.observe(target));
+  }
+}
+
+if (!prefersReduceMotion && canHover) {
   const hero = document.getElementById("hero");
   const headline = document.querySelector(".hero__headline");
 
